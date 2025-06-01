@@ -22,7 +22,7 @@ router.post('/create-product', async (req, res) => {
 // get all products
 router.get('/', async (req, res) => {
     try {
-        const { category, color, minPrice, maxPrice, page = 1, limit = 10 } = req.query
+        const { category, color, minPurchasePrice, maxPurchasePrice, archived, page = 1, limit = 10 } = req.query
 
         let filter = {}
         if (category && category !== 'all') {
@@ -31,13 +31,17 @@ router.get('/', async (req, res) => {
         if (color && color !== 'all') {
             filter.color = color
         }
-        if (minPrice && maxPrice) {
-            const min = parseFloat(minPrice)
-            const max = parseFloat(maxPrice)
+        if (minPurchasePrice && maxPurchasePrice) {
+            const min = parseFloat(minPurchasePrice)
+            const max = parseFloat(maxPurchasePrice)
             if (!isNaN(min) && !isNaN(max)) {
-                filter.price = { $gte: min, $lte: max }
+                filter.purchasePrice = { $gte: min, $lte: max }
             }
         }
+        if (archived && archived !== '') {
+            filter.archived = (archived === 'true') // string to bool
+        }
+
         const skip = (parseInt(page) - 1) * parseInt(limit)
         const totalProducts = await Products.countDocuments(filter)
         const totalPages = Math.ceil(totalProducts / parseInt(limit))
@@ -45,7 +49,6 @@ router.get('/', async (req, res) => {
             .find(filter)
             .skip(skip)
             .limit(parseInt(limit))
-            .populate('author', 'email')
             .sort({ createAt: -1 })
 
         res.status(200).send({ products, totalPages, totalProducts })
@@ -60,7 +63,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const productId = req.params.id
-        const product = await Products.findById(productId).populate('author', 'email username')
+        const product = await Products.findById(productId)
         if (!product) {
             return res.status(404).send({ message: 'Product not found' })
         }

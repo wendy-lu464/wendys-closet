@@ -39,15 +39,15 @@ const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters })
 
             {/* pricing */}
             <div className='flex flex-col space-y-2'>
-                <h4 className='font-medium text-lg'>Price Range</h4>
+                <h4 className='font-medium text-lg'>Purchase Price</h4>
                 <hr />
                 {
-                    filters.priceRanges.map((range) => (
+                    filters.purchasePriceRanges.map((range) => (
                         <label key={range.label} className='capitalize cursor-pointer'>
-                            <input type='radio' name='priceRange' id='priceRange' 
+                            <input type='radio' name='purchasePriceRange' id='purchasePriceRange' 
                             value={`${range.min}-${range.max}`}
-                                checked={filtersState.priceRange === `${range.min}-${range.max}`} // What's this?
-                                onChange={(e) => setFiltersState({ ...filtersState, priceRange: e.target.value })}
+                                checked={filtersState.purchasePriceRange === `${range.min}-${range.max}`} // What's this?
+                                onChange={(e) => setFiltersState({ ...filtersState, purchasePriceRange: e.target.value })}
                             />
                             <span className='ml-1'>{range.label}</span>
                         </label>

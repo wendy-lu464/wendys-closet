@@ -6,7 +6,7 @@ import { useFetchAllProductsQuery } from '../../redux/features/products/products
 const filters = {
     categories: ['all', 'accessories', 'dress', 'jewellery', 'cosmetics'], // etc.
     colors: ['all', 'black', 'red', 'gold', 'blue', 'silver'], // etc.
-    priceRanges: [
+    purchasePriceRanges: [
         { label: 'Under $50', min: 0, max: 50 },
         { label: '$50 - $100', min: 50, max: 100 },
         { label: '$100 - $200', min: 100, max: 200 },
@@ -15,34 +15,34 @@ const filters = {
 }
 
 const ShopPage = () => {
-    const [filtersState, setFiltersState] = useState({
+    const defaultFilters = {
         category: 'all',
         color: 'all',
-        priceRange: ''
-    })
+        archived: false,
+        purchasePriceRange: ''
+    }
+
+    const [filtersState, setFiltersState] = useState(defaultFilters)
 
     const [currentPage, setCurrentPage] = useState(1)
     const [productsPerPage] = useState(8)
 
-    const { category, color, priceRange } = filtersState
-    const [minPrice, maxPrice] = priceRange.split('-').map(Number)
+    const { category, color, purchasePriceRange } = filtersState
+    const [minPurchasePrice, maxPurchasePrice] = purchasePriceRange.split('-').map(Number)
 
     const { data: { products = [], totalPages, totalProducts } = {}, error, isLoading } = useFetchAllProductsQuery({
         category: category !== 'all' ? category : '',
         color: color !== 'all' ? color : '',
-        minPrice: isNaN(minPrice) ? '' : minPrice,
-        maxPrice: isNaN(maxPrice) ? '' : maxPrice,
+        minPurchasePrice: isNaN(minPurchasePrice) ? '' : minPurchasePrice,
+        maxPurchasePrice: isNaN(maxPurchasePrice) ? '' : maxPurchasePrice,
+        archived: false,
         page: currentPage,
         limit: productsPerPage
     })
 
     // clear the filters
     const clearFilters = () => {
-        setFiltersState({
-            category: 'all',
-            color: 'all',
-            priceRange: ''
-        })
+        setFiltersState(defaultFilters)
     }
 
     // handle page change
