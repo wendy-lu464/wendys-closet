@@ -37,24 +37,6 @@ const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters })
                 }
             </div>
 
-            {/* pricing */}
-            <div className='flex flex-col space-y-2'>
-                <h4 className='font-medium text-lg'>Purchase Price</h4>
-                <hr />
-                {
-                    filters.purchasePriceRanges.map((range) => (
-                        <label key={range.label} className='capitalize cursor-pointer'>
-                            <input type='radio' name='purchasePriceRange' id='purchasePriceRange' 
-                            value={`${range.min}-${range.max}`}
-                                checked={filtersState.purchasePriceRange === `${range.min}-${range.max}`} // What's this?
-                                onChange={(e) => setFiltersState({ ...filtersState, purchasePriceRange: e.target.value })}
-                            />
-                            <span className='ml-1'>{range.label}</span>
-                        </label>
-                    ))
-                }
-            </div>
-
             {/* clear filters */}
             <button onClick={clearFilters} className='bg-primary py-1 px-4 text-white rounded'>Clear All Filters</button>
         </div>

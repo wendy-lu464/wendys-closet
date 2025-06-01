@@ -31,13 +31,6 @@ router.get('/', async (req, res) => {
         if (color && color !== 'all') {
             filter.color = color
         }
-        if (minPurchasePrice && maxPurchasePrice) {
-            const min = parseFloat(minPurchasePrice)
-            const max = parseFloat(maxPurchasePrice)
-            if (!isNaN(min) && !isNaN(max)) {
-                filter.purchasePrice = { $gte: min, $lte: max }
-            }
-        }
         if (archived && archived !== '') {
             filter.archived = (archived === 'true') // string to bool
         }

@@ -6,20 +6,13 @@ import { useFetchAllProductsQuery } from '../../redux/features/products/products
 const filters = {
     categories: ['all', 'accessories', 'dress', 'jewellery', 'cosmetics'], // etc.
     colors: ['all', 'black', 'red', 'gold', 'blue', 'silver'], // etc.
-    purchasePriceRanges: [
-        { label: 'Under $50', min: 0, max: 50 },
-        { label: '$50 - $100', min: 50, max: 100 },
-        { label: '$100 - $200', min: 100, max: 200 },
-        { label: '$200 and above', min: 200, max: Infinity }
-    ]
 }
 
 const ShopPage = () => {
     const defaultFilters = {
         category: 'all',
         color: 'all',
-        archived: false,
-        purchasePriceRange: ''
+        archived: false
     }
 
     const [filtersState, setFiltersState] = useState(defaultFilters)
@@ -27,14 +20,11 @@ const ShopPage = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [productsPerPage] = useState(8)
 
-    const { category, color, purchasePriceRange } = filtersState
-    const [minPurchasePrice, maxPurchasePrice] = purchasePriceRange.split('-').map(Number)
+    const { category, color } = filtersState
 
     const { data: { products = [], totalPages, totalProducts } = {}, error, isLoading } = useFetchAllProductsQuery({
         category: category !== 'all' ? category : '',
         color: color !== 'all' ? color : '',
-        minPurchasePrice: isNaN(minPurchasePrice) ? '' : minPurchasePrice,
-        maxPurchasePrice: isNaN(maxPurchasePrice) ? '' : maxPurchasePrice,
         archived: false,
         page: currentPage,
         limit: productsPerPage
