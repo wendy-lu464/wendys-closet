@@ -1,19 +1,42 @@
 const mongoose = require('mongoose')
 
 const ProductSchema = new mongoose.Schema({
+    // basic info
     name: {
         type: String, required: true,
     },
-    category: String,
     description: String,
-    price: {
-        type: Number, required: true
+
+    // images
+    mainImage: String,
+    otherImages: [String],
+
+    // additional info
+    color: [String],
+    brand: String,
+    material: [String],
+    care: String,
+
+    // purchase info
+    purchasePrice: Number,
+    purchaseDate: Date,
+    origin: {
+        type: {
+            originType: { type: String, required: true }, // new or secondhand
+            store: String
+        },
+        required: false
     },
-    oldPrice: Number,
-    image: String,
-    color: String,
-    author: {
-        type: mongoose.Types.ObjectId, ref: 'User', required: true
+
+    // metadata
+    category: {
+        type: String, required: true
+    },
+    categoryTags: {
+        type: [String], required: true
+    },
+    archived: {
+        type: Boolean, default: false, required: true
     }
 })
 

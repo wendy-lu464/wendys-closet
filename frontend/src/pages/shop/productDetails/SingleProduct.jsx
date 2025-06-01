@@ -15,9 +15,14 @@ const SingleProduct = () => {
     const handleAddToCart = (product) => {
         dispatch(addToCart(product))
     }
+    
+    function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+    }
 
     if (isLoading) return <p>Loading...</p>
     if (error) return <p>Error loading product details.</p>
+    
 
     return (
         <>
@@ -36,21 +41,23 @@ const SingleProduct = () => {
                 <div className='flex flex-col items-center md:flex-row gap-8'>
                     {/* product image */}
                     <div className='md:w-1/2 w-full'>
-                        <img src={singleProduct?.image}
+                        <img src={singleProduct?.mainImage}
                             alt=""
                             className='rounded-md w-full h-auto' />
                     </div>
 
                     <div className='md:w-1/2 w-full'>
                         <h3 className='text-2xl font-semibold mb-4'>{singleProduct?.name}</h3>
-                        <p className='text-xl text-primary mb-4'>${singleProduct?.price}
-                            {singleProduct?.oldPrice && <s className='ml-1'>${singleProduct?.oldPrice}</s>}</p>
                         <p className='text-gray-700 mb-4'>{singleProduct?.description}</p>
 
                         {/* additional product info */}
-                        <div className='flex flex-col space-y-2'>
-                            <p><strong>Category:</strong> {singleProduct?.category}</p>
-                            <p><strong>Color:</strong> {singleProduct?.color}</p>
+                        <div className='flex flex-col space-y-2'> 
+                            { singleProduct?.brand ? (<p><strong>Brand:</strong> {singleProduct.brand}</p>) : (null) }
+                            { singleProduct?.material ? (<p><strong>Material:</strong> {singleProduct.material.join(', ')}</p>) : (null) }
+                            { singleProduct?.care ? (<p><strong>Care:</strong> {singleProduct.care}</p>) : (null) }
+                            { singleProduct?.purchasePrice ? (<p><strong>Purchase Price:</strong> ${singleProduct.purchasePrice.toFixed(2)}</p>) : (null) }
+                            { singleProduct?.purchaseDate ? (<p><strong>Purchase Date:</strong> {singleProduct.purchaseDate.toString().substring(0, 10)}</p>) : (null) }
+                            { singleProduct?.origin ? (<p><strong>Origin:</strong> {capitalize(singleProduct.origin.originType)} - {singleProduct.origin.store}</p>) : (null) }
                             <div className='flex gap-1 items-center'></div>
                         </div>
 
