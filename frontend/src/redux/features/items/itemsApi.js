@@ -1,15 +1,15 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { getBaseUrl } from '../../../utils/baseURL'
 
-const productsApi = createApi({
-    reducerPath: 'productsApi',
+const itemsApi = createApi({
+    reducerPath: 'itemsApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: `${getBaseUrl()}/api/products`,
+        baseUrl: `${getBaseUrl()}/api/items`,
         credentials: 'include'
     }),
-    tagTypes: ['Products'],
+    tagTypes: ['Items'],
     endpoints: (builder) => ({
-        fetchAllProducts: builder.query({
+        fetchAllItems: builder.query({
             query: ({ category, color, minPurchasePrice, maxPurchasePrice, archived = null, page = 1, limit = 10 }) => {
                 const queryParams = new URLSearchParams({
                     category: category || '',
@@ -22,49 +22,49 @@ const productsApi = createApi({
                 }).toString()
                 return `/?${queryParams}`
             },
-            providesTags: ['Products']
+            providesTags: ['Items']
         }),
 
-        fetchProductById: builder.query({
+        fetchItemById: builder.query({
             query: (id) => `/${id}`,
-            providesTags: (result, error, id) => [{ type: 'Products', id }]
+            providesTags: (result, error, id) => [{ type: 'Items', id }]
         }),
 
-        addProduct: builder.mutation({
-            query: (newProduct) => ({
-                url: '/create-product',
+        addItem: builder.mutation({
+            query: (newItem) => ({
+                url: '/create-item',
                 method: 'POST',
-                body: newProduct,
+                body: newItem,
                 credentials: 'include'
             }),
-            invalidatesTags: ['Products']
+            invalidatesTags: ['Items']
         }),
 
-        fetchRelatedProducts: builder.query({
+        fetchRelatedItems: builder.query({
             query: (id) => `/related/${id}`
         }),
 
-        updateProduct: builder.mutation({
+        updateItem: builder.mutation({
             query: ({ id, ...rest }) => ({
-                url: `/update-product/${id}`,
+                url: `/update-item/${id}`,
                 method: 'PATCH',
                 body: rest,
                 credentials: 'include',
             }),
-            invalidatesTags: ['Products']
+            invalidatesTags: ['Items']
         }),
 
-        deleteProduct: builder.mutation({
+        deleteItem: builder.mutation({
             query: ({ id }) => ({
                 url: `/${id}`,
                 method: 'DELETE',
                 credentials: 'include',
             }),
-            invalidatesTags: (result, error, id) => [{ type: 'Products', id }]
+            invalidatesTags: (result, error, id) => [{ type: 'Items', id }]
         }),
     }),
 })
 
-export const { useFetchAllProductsQuery, useFetchProductByIdQuery, useAddProductMutation,
-    useUpdateProductMutation, useDeleteProductMutation, useFetchRelatedProductsQuery } = productsApi
-export default productsApi
+export const { useFetchAllItemsQuery, useFetchItemByIdQuery, useAddItemMutation,
+    useUpdateItemMutation, useDeleteItemMutation, useFetchRelatedItemsQuery } = itemsApi
+export default itemsApi

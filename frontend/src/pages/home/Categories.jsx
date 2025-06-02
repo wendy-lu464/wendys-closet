@@ -14,7 +14,7 @@ const Categories = () => {
     ]
   return (
     <>
-    <div className='product__grid'>
+    <div className='item__grid'>
         {
             categories.map((category) => (
                 <Link key={category.name} to={`/categories/${category.path}`} className='categories__card'>

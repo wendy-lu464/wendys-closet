@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import ProductCards from '../closet/ProductCards'
-import productsData from '../../data/products.json'
+import ItemCards from '../closet/ItemCards'
+import itemsData from '../../data/items.json'
 
 const Search = () => {
     const [searchQuery, setSearchQuery] = useState('')
-    const [filteredProducts, setFilteredProducts] = useState(productsData)
+    const [filteredItems, setFilteredItems] = useState(itemsData)
 
     const handleSearch = () => {
         const query = searchQuery.toLowerCase()
-        const filtered = productsData.filter(product => product.name.toLowerCase().includes(query) ||
-            product.description.toLowerCase().includes(query))
+        const filtered = itemsData.filter(item => item.name.toLowerCase().includes(query) ||
+            item.description.toLowerCase().includes(query))
 
-        setFilteredProducts(filtered)
+        setFilteredItems(filtered)
     }
     return (
         <>
@@ -26,7 +26,7 @@ const Search = () => {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className='search-bar w-full max-w-4xl p-2 border rounded'
-                        placeholder='Search for products...' />
+                        placeholder='Search for items...' />
 
                     <button
                         onClick={handleSearch}
@@ -35,7 +35,7 @@ const Search = () => {
                     </button>
                 </div>
 
-                <ProductCards products={filteredProducts} />
+                <ItemCards items={filteredItems} />
             </section>
         </>
     )

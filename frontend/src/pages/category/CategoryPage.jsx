@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import products from '../../data/products.json'
-import ProductCards from '../closet/ProductCards'
+import items from '../../data/items.json'
+import ItemCards from '../closet/ItemCards'
 
 const CategoryPage = () => {
     const { categoryName } = useParams()
-    const [filteredProducts, setFilteredProducts] = useState([])
+    const [filteredItems, setFilteredItems] = useState([])
 
     useEffect(() => {
-        const filtered = products.filter(product => product.category === categoryName.toLowerCase()) // Check that value and type are equal
-        setFilteredProducts(filtered)
+        const filtered = items.filter(item => item.category === categoryName.toLowerCase()) // Check that value and type are equal
+        setFilteredItems(filtered)
     }, [categoryName])
 
     useEffect(() => {
@@ -23,9 +23,9 @@ const CategoryPage = () => {
                 <p className='section__subheader'>This is a subheader.</p>
             </section>
 
-            { /* products card */}
+            { /* items card */}
             <div className='section__container'>
-                <ProductCards products={filteredProducts} />
+                <ItemCards items={filteredItems} />
             </div>
         </>
     )

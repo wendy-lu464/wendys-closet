@@ -7,7 +7,7 @@ import { useLogoutUserMutation } from '../redux/features/auth/authApi'
 import { logout } from '../redux/features/auth/authSlice'
 
 const Navbar = () => {
-    const products = useSelector((state) => state.cart.products)
+    const items = useSelector((state) => state.cart.items)
     const [isCartOpen, setIsCartOpen] = useState(false)
     const handleCartToggle = () => {
         setIsCartOpen(!isCartOpen)
@@ -28,7 +28,7 @@ const Navbar = () => {
     // admin dropdown menu
     const adminDropdownMenu = [
         { label: 'Dashboard', path: '/dashboard/admin' },
-        { label: 'Manage Items', path: '/dashboard/manage-products' },
+        { label: 'Manage Items', path: '/dashboard/manage-items' },
         { label: 'All Orders', path: '/dashboard/manage-orders' },
         { label: 'Add New Post', path: '/dashboard/add-new-post' },
     ]
@@ -78,7 +78,7 @@ const Navbar = () => {
                     <span>
                         <button onClick={handleCartToggle} className='hover:text-primary'>
                             <i className="ri-shopping-cart-line"></i>
-                            <sup className='text-sm inline-block px-1.5 text-white rounded-full bg-primary text-center'>{products.length}</sup>
+                            <sup className='text-sm inline-block px-1.5 text-white rounded-full bg-primary text-center'>{items.length}</sup>
                         </button>
                     </span>
                     <span>
@@ -116,7 +116,7 @@ const Navbar = () => {
             </nav>
 
             {
-                isCartOpen && <CartModal products={products} isOpen={isCartOpen} onClose={handleCartToggle} />
+                isCartOpen && <CartModal items={items} isOpen={isCartOpen} onClose={handleCartToggle} />
             }
         </header>
     )

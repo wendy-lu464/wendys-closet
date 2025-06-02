@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const cartSlice = createSlice({
     name: 'cart',
     initialState: {
-        products: [],
+        items: [],
         selectedItems: 0,
         totalPrice: 0,
         tax: 0,
@@ -12,10 +12,10 @@ export const cartSlice = createSlice({
     },
     reducers: {
         addToCart: (state, action) => {
-            const isExist = state.products.some(product => product.id === action.payload.id)
+            const isExist = state.items.some(item => item.id === action.payload.id)
 
             if (!isExist) {
-                state.products.push({ ...action.payload, quantity: 1 })
+                state.items.push({ ...action.payload, quantity: 1 })
             } else {
                 console.log('Item already in cart')
             }
@@ -26,16 +26,16 @@ export const cartSlice = createSlice({
             state.grandTotal = setGrandTotal(state)
         },
         updateQuantity: (state, action) => {
-            const products = state.products.map((product) => {
-                if (product.id === action.payload.id) {
+            const items = state.items.map((item) => {
+                if (item.id === action.payload.id) {
                     if (action.payload.type === 'increment') {
-                        product.quantity += 1
-                    } else if (action.payload.type === 'decrement' && product.quantity > 1) {
-                        product.quantity -= 1
+                        item.quantity += 1
+                    } else if (action.payload.type === 'decrement' && item.quantity > 1) {
+                        item.quantity -= 1
                     }
 
                 }
-                return product
+                return item
             })
 
             state.selectedItems = setSelectedItems(state)
@@ -44,14 +44,14 @@ export const cartSlice = createSlice({
             state.grandTotal = setGrandTotal(state)
         },
         removeFromCart: (state, action) => {
-            state.products = state.products.filter((product) => product.id !== action.payload.id)
+            state.items = state.items.filter((item) => item.id !== action.payload.id)
             state.selectedItems = setSelectedItems(state)
             state.totalPrice = setTotalPrice(state)
             state.tax = setTax(state)
             state.grandTotal = setGrandTotal(state)
         },
         clearCart: (state) => {
-            state.products = []
+            state.items = []
             state.selectedItems = 0
             state.totalPrice = 0
             state.tax = 0
@@ -61,12 +61,12 @@ export const cartSlice = createSlice({
 })
 
 // utilties function
-export const setSelectedItems = (state) => state.products.reduce((total, product) => {
-    return Number(total + product.quantity)
+export const setSelectedItems = (state) => state.items.reduce((total, item) => {
+    return Number(total + item.quantity)
 }, 0)
 
-export const setTotalPrice = (state) => state.products.reduce((total, product) => {
-    return Number(total + product.quantity * product.price)
+export const setTotalPrice = (state) => state.items.reduce((total, item) => {
+    return Number(total + item.quantity * item.price)
 }, 0)
 
 export const setTax = (state) => setTotalPrice(state) * state.taxRate

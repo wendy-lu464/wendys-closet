@@ -242,7 +242,7 @@ nav {
   border-radius: 5px;
 }
 
-.product__grid {
+.item__grid {
   max-width: var(--max-width-900);
   margin: 4rem auto;
   display: grid;
@@ -250,30 +250,30 @@ nav {
   gap: 2rem;
 }
 
-.product__card__content {
+.item__card__content {
   text-align: center;
   padding: 1rem;
 }
 
-.product__card__content h4 {
+.item__card__content h4 {
   margin-bottom: 5px;
   font-size: 1.2rem;
   font-weight: 800;
   font-family: var(--header-font);
 }
 
-.product__card__content p {
+.item__card__content p {
   font-weight: 500;
   color: var(--text-dark);
 }
 
-.product__card__content p s {
+.item__card__content p s {
   font-size: 0.9rem;
   font-weight: 400;
   color: var(--text-light);
 }
 
-.product__btn {
+.item__btn {
   text-align: center;
 }
 
@@ -502,7 +502,7 @@ nav {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .product__grid {
+  .item__grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
@@ -548,7 +548,7 @@ nav {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .product__grid {
+  .item__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -576,10 +576,10 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.add-product-InputCSS {
+.add-item-InputCSS {
   @apply mt-1 block py-2.5 px-4 w-full rounded-md bg-gray-100 border-gray-300 shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm
 }
 
-.add-product-btn{
+.add-item-btn{
   @apply mt-5 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import ProductCards from './ProductCards'
+import ItemCards from './ItemCards'
 import ClosetFiltering from './ClosetFiltering'
-import { useFetchAllProductsQuery } from '../../redux/features/products/productsApi'
+import { useFetchAllItemsQuery } from '../../redux/features/items/itemsApi'
 
 const filters = {
     categories: ['all', 'accessories', 'dress', 'jewellery', 'cosmetics'], // etc.
@@ -18,16 +18,16 @@ const ClosetPage = () => {
     const [filtersState, setFiltersState] = useState(defaultFilters)
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [productsPerPage] = useState(8)
+    const [itemsPerPage] = useState(8)
 
     const { category, color } = filtersState
 
-    const { data: { products = [], totalPages, totalProducts } = {}, error, isLoading } = useFetchAllProductsQuery({
+    const { data: { items = [], totalPages, totalItems } = {}, error, isLoading } = useFetchAllItemsQuery({
         category: category !== 'all' ? category : '',
         color: color !== 'all' ? color : '',
         archived: false,
         page: currentPage,
-        limit: productsPerPage
+        limit: itemsPerPage
     })
 
     // clear the filters
@@ -45,11 +45,11 @@ const ClosetPage = () => {
     if (isLoading) return <div>Loading...</div>
     if (error) {
         console.log(error)
-        return <div>Error loading products</div>
+        return <div>Error loading items</div>
     }
 
-    const startProduct = (currentPage - 1) * productsPerPage + 1
-    const endProduct = startProduct + products.length - 1
+    const startItem = (currentPage - 1) * itemsPerPage + 1
+    const endItem = startItem + items.length - 1
 
     return (
         <>
@@ -68,13 +68,13 @@ const ClosetPage = () => {
                         clearFilters={clearFilters}
                     />
 
-                    {/* products */}
+                    {/* items */}
                     {
-                        products.length === 0 ? (<div><h3 className='text-xl font-medium mb-4'>No results</h3></div>) : (
+                        items.length === 0 ? (<div><h3 className='text-xl font-medium mb-4'>No results</h3></div>) : (
                             <div>
                                 <h3 className='text-xl font-medium mb-4'>
-                                    Showing {startProduct} to {endProduct} of {totalProducts} products</h3>
-                                <ProductCards products={products} />
+                                    Showing {startItem} to {endItem} of {totalItems} items</h3>
+                                <ItemCards items={items} />
 
                                 { /* pagination controls */}
                                 <div className='mt-6 flex justify-center'>
