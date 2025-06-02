@@ -8,7 +8,9 @@ const ProductSchema = new mongoose.Schema({
     description: String,
 
     // images
-    mainImage: String,
+    mainImage: {
+        type: String, required: true
+    },
     otherImages: [String],
 
     // additional info
