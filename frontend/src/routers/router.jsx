@@ -3,8 +3,8 @@ import App from '../App.jsx'
 import Home from '../pages/home/Home.jsx'
 import CategoryPage from '../pages/category/CategoryPage.jsx';
 import Search from '../pages/search/Search.jsx';
-import ShopPage from '../pages/shop/ShopPage.jsx';
-import SingleProduct from '../pages/shop/productDetails/SingleProduct.jsx';
+import ClosetPage from '../pages/closet/ClosetPage.jsx';
+import SingleProduct from '../pages/closet/productDetails/SingleProduct.jsx';
 import Login from '../components/Login.jsx';
 import Register from '../components/Register.jsx';
 
@@ -16,8 +16,8 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/categories/:categoryName", element: <CategoryPage /> },
       { path: "/search", element: <Search /> },
-      { path: "/shop", element: <ShopPage /> },
-      { path: "/shop/:id", element: <SingleProduct /> },
+      { path: "/closet", element: <ClosetPage /> },
+      { path: "/closet/:id", element: <SingleProduct /> },
     ],
   },
   {

@@ -8,7 +8,7 @@ const filters = {
     colors: ['all', 'black', 'red', 'gold', 'blue', 'silver'], // etc.
 }
 
-const ShopPage = () => {
+const ClosetPage = () => {
     const defaultFilters = {
         category: 'all',
         color: 'all',
@@ -54,7 +54,7 @@ const ShopPage = () => {
     return (
         <>
             <section className='section__container bg-primary-light'>
-                <h2 className='section__header capitalize'>Shop</h2>
+                <h2 className='section__header capitalize'>Browse</h2>
                 <p className='section__subheader'>This is a subheader.</p>
             </section>
 
@@ -108,4 +108,4 @@ const ShopPage = () => {
     )
 }
 
-export default ShopPage
+export default ClosetPage

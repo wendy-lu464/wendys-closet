@@ -31,7 +31,7 @@ const SingleProduct = () => {
                 <div className='section__subheader space-x-2'>
                     <span className='hover:text-primary'><Link to="/">Home</Link></span>
                     <i className='ri-arrow-right-s-line'></i>
-                    <span className='hover:text-primary'><Link to="/shop">Shop</Link></span>
+                    <span className='hover:text-primary'><Link to="/closet">Closet</Link></span>
                     <i className='ri-arrow-right-s-line'></i>
                     <span className='hover:text-primary'>{singleProduct?.name}</span>
                 </div>
@@ -53,7 +53,7 @@ const SingleProduct = () => {
                         {/* additional product info */}
                         <div className='flex flex-col space-y-2'> 
                             { singleProduct?.brand ? (<p><strong>Brand:</strong> {singleProduct.brand}</p>) : (null) }
-                            { singleProduct?.material ? (<p><strong>Material:</strong> {singleProduct.material.join(', ')}</p>) : (null) }
+                            { singleProduct?.material.length > 0 ? (<p><strong>Material:</strong> {singleProduct.material.join(', ')}</p>) : (null) }
                             { singleProduct?.care ? (<p><strong>Care:</strong> {singleProduct.care}</p>) : (null) }
                             { singleProduct?.purchasePrice ? (<p><strong>Purchase Price:</strong> ${singleProduct.purchasePrice.toFixed(2)}</p>) : (null) }
                             { singleProduct?.purchaseDate ? (<p><strong>Purchase Date:</strong> {singleProduct.purchaseDate.toString().substring(0, 10)}</p>) : (null) }

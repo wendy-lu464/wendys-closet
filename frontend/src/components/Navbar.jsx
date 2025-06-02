@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import CartModal from '../pages/shop/CartModal'
+import CartModal from '../pages/closet/CartModal'
 import avatarImg from '../assets/avatar.png'
 import { useLogoutUserMutation } from '../redux/features/auth/authApi'
 import { logout } from '../redux/features/auth/authSlice'
@@ -58,7 +58,7 @@ const Navbar = () => {
             <nav className='max-w-screen-2xl mx-auto px-4 flex justify-between items-center'>
                 <ul className='nav__links'>
                     <li className='link'><Link to="/">Home</Link></li>
-                    <li className='link'><Link to="/shop">Shop</Link></li>
+                    <li className='link'><Link to="/closet">Closet</Link></li>
                     <li className='link'><Link to="/">Pages</Link></li>
                     <li className='link'><Link to="/contact">Contact</Link></li>
                 </ul>

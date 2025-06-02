@@ -16,7 +16,7 @@ const ProductCards = ({ products }) => {
                 products.map((product, index) => (
                     <div key={index} className='product__card'>
                         <div className='relative'>
-                            <Link to={`/shop/${product._id}`}>
+                            <Link to={`/closet/${product._id}`}>
                                 <img src={product.mainImage} alt='product image' className='max-h-96 md:h-64 w-full object-cover hover:scale-105 transition-all duration-300' />
                             </Link>
 
