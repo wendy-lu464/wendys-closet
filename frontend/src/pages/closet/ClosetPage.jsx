@@ -4,8 +4,8 @@ import ClosetFiltering from './ClosetFiltering'
 import { useFetchAllItemsQuery } from '../../redux/features/items/itemsApi'
 
 const filters = {
-    categories: ['all', 'accessories', 'dress', 'jewellery', 'cosmetics'], // etc.
-    colors: ['all', 'black', 'red', 'gold', 'blue', 'silver'], // etc.
+    categories: ['all', 'top', 'bottom', 'one-piece', 'shoes', 'accessory'],
+    colors: ['all', 'black', 'grey', 'white', 'cream', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'gold', 'silver'],
 }
 
 const ClosetPage = () => {
