@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ProductCards from './ProductCards'
-import ShopFiltering from './ShopFiltering'
+import ClosetFiltering from './ClosetFiltering'
 import { useFetchAllProductsQuery } from '../../redux/features/products/productsApi'
 
 const filters = {
@@ -61,7 +61,7 @@ const ClosetPage = () => {
             <section className='section__container'>
                 <div className='flex flex-col md:flex-row md:gap-12 gap-8'>
                     {/* filters */}
-                    <ShopFiltering
+                    <ClosetFiltering
                         filters={filters}
                         filtersState={filtersState}
                         setFiltersState={setFiltersState}

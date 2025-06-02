@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters }) => {
+const ClosetFiltering = ({ filters, filtersState, setFiltersState, clearFilters }) => {
     return (
         <div className='space-y-5 flex-shrink-0'>
             {/* categories */}
@@ -43,4 +43,4 @@ const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters })
     )
 }
 
-export default ShopFiltering
+export default ClosetFiltering
