@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ClosetFiltering = ({ filters, filtersState, setFiltersState, clearFilters }) => {
+const ClosetFiltering = ({ filters, filtersState, handleFilterChange, clearFilters }) => {
     return (
         <div className='space-y-5 flex-shrink-0'>
             {/* categories */}
@@ -12,7 +12,7 @@ const ClosetFiltering = ({ filters, filtersState, setFiltersState, clearFilters 
                         <label key={category} className='capitalize cursor-pointer'>
                             <input type='radio' name='category' id='category' value={category}
                                 checked={filtersState.category === category}
-                                onChange={(e) => setFiltersState({ ...filtersState, category: e.target.value })}
+                                onChange={(e) => handleFilterChange({ ...filtersState, category: e.target.value })}
                             />
                             <span className='ml-1'>{category}</span>
                         </label>
@@ -29,7 +29,7 @@ const ClosetFiltering = ({ filters, filtersState, setFiltersState, clearFilters 
                         <label key={color} className='capitalize cursor-pointer'>
                             <input type='radio' name='color' id='color' value={color}
                                 checked={filtersState.color === color}
-                                onChange={(e) => setFiltersState({ ...filtersState, color: e.target.value })}
+                                onChange={(e) => handleFilterChange({ ...filtersState, color: e.target.value })}
                             />
                             <span className='ml-1'>{color}</span>
                         </label>

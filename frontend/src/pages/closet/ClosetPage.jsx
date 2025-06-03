@@ -30,12 +30,15 @@ const ClosetPage = () => {
         limit: itemsPerPage
     })
 
-    // clear the filters
     const clearFilters = () => {
         setFiltersState(defaultFilters)
     }
 
-    // handle page change
+    const handleFilterChange = (newFiltersState) => {
+        setFiltersState(newFiltersState)
+        setCurrentPage(1) // stop currentPage from being too large for totalItems
+    }
+
     const handlePageChange = (pageNumber) => {
         if (pageNumber > 0 && pageNumber <= totalPages) {
             setCurrentPage(pageNumber)
@@ -64,7 +67,7 @@ const ClosetPage = () => {
                     <ClosetFiltering
                         filters={filters}
                         filtersState={filtersState}
-                        setFiltersState={setFiltersState}
+                        setFiltersState={handleFilterChange}
                         clearFilters={clearFilters}
                     />
 
