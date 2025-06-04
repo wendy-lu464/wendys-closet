@@ -1,20 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
-import items from '../../data/items.json'
 import ItemCards from '../closet/ItemCards'
+import { useFetchAllItemsQuery } from '../../redux/features/items/itemsApi'
 
 const CategoryPage = () => {
     const { categoryName } = useParams()
-    const [filteredItems, setFilteredItems] = useState([])
 
-    useEffect(() => {
-        const filtered = items.filter(item => item.category === categoryName.toLowerCase()) // Check that value and type are equal
-        setFilteredItems(filtered)
-    }, [categoryName])
+    const { data: { items = [], totalPages, totalItems } = {}, error, isLoading } = useFetchAllItemsQuery({
+        category: categoryName,
+        archived: false,
+        limit: 8
+    })
 
     useEffect(() => {
         window.scrollTo(0, 0)
     })
+
+    if (isLoading) return <div>Loading...</div>
+    if (error) {
+        console.log(error)
+        return <div>Error loading items</div>
+    }
 
     return (
         <>
@@ -25,7 +32,13 @@ const CategoryPage = () => {
 
             { /* items card */}
             <div className='section__container'>
-                <ItemCards items={filteredItems} />
+                <ItemCards items={items} />
+            </div>
+
+            { /* Browse More button, TODO: add pagination and filters */}
+            <div className='item__btn'>
+                {<button className='btn' ><Link to='/closet'>Browse More</Link></button>
+                }
             </div>
         </>
     )

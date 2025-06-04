@@ -10,7 +10,7 @@ const itemsApi = createApi({
     tagTypes: ['Items'],
     endpoints: (builder) => ({
         fetchAllItems: builder.query({
-            query: ({ category, color, minPurchasePrice, maxPurchasePrice, archived = null, page = 1, limit = 10 }) => {
+            query: ({ category, color, minPurchasePrice, maxPurchasePrice, archived = null, page = 1, limit}) => {
                 const queryParams = new URLSearchParams({
                     category: category || '',
                     color: color || '',
@@ -18,7 +18,7 @@ const itemsApi = createApi({
                     maxPurchasePrice: maxPurchasePrice || '',
                     archived: archived !== null ? archived : '',
                     page: page.toString(),
-                    limit: limit.toString()
+                    limit: limit !== null ? limit : ''
                 }).toString()
                 return `/?${queryParams}`
             },

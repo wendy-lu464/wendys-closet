@@ -1,18 +1,36 @@
 import React, { useState } from 'react'
 import ItemCards from '../closet/ItemCards'
-import itemsData from '../../data/items.json'
+import { useFetchAllItemsQuery } from '../../redux/features/items/itemsApi'
 
 const Search = () => {
     const [searchQuery, setSearchQuery] = useState('')
-    const [filteredItems, setFilteredItems] = useState(itemsData)
+    const [filteredItems, setFilteredItems] = useState([])
+    const { data: { items = [], totalPages, totalItems } = {}, error, isLoading } = useFetchAllItemsQuery({})
 
     const handleSearch = () => {
         const query = searchQuery.toLowerCase()
-        const filtered = itemsData.filter(item => item.name.toLowerCase().includes(query) ||
-            item.description.toLowerCase().includes(query))
-
-        setFilteredItems(filtered)
+        if (query === '') {
+            setFilteredItems([])
+        } else {
+            const filtered = items.filter(item =>
+                item.name.toLowerCase().includes(query) ||
+                item.description?.toLowerCase().includes(query) ||
+                item.color?.some(color => color.includes(query)) ||
+                item.brand?.toLowerCase().includes(query) ||
+                item.material?.some(material => material.toLowerCase().includes(query)) ||
+                item.care?.toLowerCase().includes(query) ||
+                item.origin?.store?.toLowerCase().includes(query) ||
+                item.categoryTags.some(tag => tag.includes(query)))
+            setFilteredItems(filtered)
+        }
     }
+
+    if (isLoading) return <div>Loading...</div>
+    if (error) {
+        console.log(error)
+        return <div>Error loading items</div>
+    }
+
     return (
         <>
             <section className='section__container bg-primary-light'>
@@ -25,6 +43,7 @@ const Search = () => {
                     <input type='text'
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
+                        onKeyDown={(e) => {if (e.key === 'Enter') {handleSearch()}}}
                         className='search-bar w-full max-w-4xl p-2 border rounded'
                         placeholder='Search for items...' />
 
