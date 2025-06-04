@@ -61,7 +61,7 @@ const SingleItem = () => {
                             <div className='flex gap-1 items-center'></div>
                         </div>
 
-                        <button
+                        <button hidden
                             onClick={(e) => {
                                 e.stopPropagation()
                                 handleAddToCart(singleItem)

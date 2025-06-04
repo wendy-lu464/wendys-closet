@@ -22,8 +22,7 @@ const TrendingItems = () => {
 
     return (
         <section className='section__container item__container'>
-            <h2 className='section__header'>Trending Items</h2>
-            <p className='section__subheader mb-12'>Some text here</p>
+            <h2 className='section__header'>Quick Look</h2>
 
             {/* items cards */}
             <div className='mt-12'>

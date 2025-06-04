@@ -20,7 +20,7 @@ const ItemCards = ({ items }) => {
                                 <img src={item.mainImage} alt='item image' className='max-h-96 md:h-64 w-full object-cover hover:scale-105 transition-all duration-300' />
                             </Link>
 
-                            <div className='hover:block absolute top-3 right-3'>
+                            <div hidden className='hover:block absolute top-3 right-3'>
                                 <button onClick={(e) => {
                                     e.stopPropagation()
                                     handleAddToCart(item)

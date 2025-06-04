@@ -35,7 +35,7 @@ const ItemSchema = new mongoose.Schema({
         type: String, required: true
     },
     categoryTags: {
-        type: [String], required: true
+        type: [String], default: [], required: true
     },
     archived: {
         type: Boolean, default: false, required: true

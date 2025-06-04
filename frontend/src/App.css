@@ -431,7 +431,7 @@ nav {
 .footer__container {
   max-width: var(--max-width-1200);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -456,7 +456,6 @@ nav {
 }
 
 .footer__col a {
-  display: block;
   margin-bottom: 1rem;
   font-weight: 500;
   color: var(--text-light);
@@ -566,7 +565,7 @@ nav {
   }
 }
 
-.nav__icons span a.dropdown-items{
+.nav__icons span a.dropdown-items {
   font-size: 16px;
 }
 
@@ -580,6 +579,6 @@ input[type="number"]::-webkit-outer-spin-button {
   @apply mt-1 block py-2.5 px-4 w-full rounded-md bg-gray-100 border-gray-300 shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm
 }
 
-.add-item-btn{
+.add-item-btn {
   @apply mt-5 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
 }

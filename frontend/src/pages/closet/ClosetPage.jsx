@@ -57,8 +57,7 @@ const ClosetPage = () => {
     return (
         <>
             <section className='section__container bg-primary-light'>
-                <h2 className='section__header capitalize'>Browse</h2>
-                <p className='section__subheader'>This is a subheader.</p>
+                <h2 className='section__header capitalize'>Collection</h2>
             </section>
 
             <section className='section__container'>
@@ -67,7 +66,7 @@ const ClosetPage = () => {
                     <ClosetFiltering
                         filters={filters}
                         filtersState={filtersState}
-                        setFiltersState={handleFilterChange}
+                        handleFilterChange={handleFilterChange}
                         clearFilters={clearFilters}
                     />
 

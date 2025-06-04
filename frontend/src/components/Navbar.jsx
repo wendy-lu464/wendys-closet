@@ -58,8 +58,7 @@ const Navbar = () => {
             <nav className='max-w-screen-2xl mx-auto px-4 flex justify-between items-center'>
                 <ul className='nav__links'>
                     <li className='link'><Link to="/">Home</Link></li>
-                    <li className='link'><Link to="/closet">Closet</Link></li>
-                    <li className='link'><Link to="/">Pages</Link></li>
+                    <li className='link'><Link to="/closet">Browse</Link></li>
                     <li className='link'><Link to="/contact">Contact</Link></li>
                 </ul>
 
@@ -75,7 +74,7 @@ const Navbar = () => {
                             <i className="ri-search-line"></i>
                         </Link>
                     </span>
-                    <span>
+                    <span hidden>
                         <button onClick={handleCartToggle} className='hover:text-primary'>
                             <i className="ri-shopping-cart-line"></i>
                             <sup className='text-sm inline-block px-1.5 text-white rounded-full bg-primary text-center'>{items.length}</sup>

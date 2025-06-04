@@ -7,10 +7,10 @@ import category4 from '../../assets/category-4.jpg'
 
 const Categories = () => {
     const categories = [
-        {name: 'accessory', path: 'accessory', image: category1},
-        {name: 'one-piece', path: 'one-piece', image: category2},
         {name: 'top', path: 'top', image: category3},
         {name: 'bottom', path: 'bottom', image: category4},
+        {name: 'accessory', path: 'accessory', image: category1},
+        {name: 'one-piece', path: 'one-piece', image: category2}
     ]
   return (
     <>

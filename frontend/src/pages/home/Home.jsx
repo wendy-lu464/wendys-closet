@@ -12,10 +12,7 @@ const Home = () => {
     <>
     <Banner/>
     <Categories/>
-    <HeroSection/>
     <TrendingItems/>
-    <DealsSection/>
-    <PromoBanner/>
     <Blogs/>
     </>
   )

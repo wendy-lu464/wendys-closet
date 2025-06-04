@@ -27,7 +27,6 @@ const CategoryPage = () => {
         <>
             <section className='section__container bg-primary-light'>
                 <h2 className='section__header capitalize'>{categoryName}</h2>
-                <p className='section__subheader'>This is a subheader.</p>
             </section>
 
             { /* items card */}
