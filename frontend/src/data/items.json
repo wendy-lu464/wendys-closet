@@ -1,0 +1,171 @@
+[
+  {
+    "name": "Template",
+    "description": "Pretty vintage-style purse made in Korea.",
+    "mainImage": "https://images.unsplash.com/photo-1512201078372-9c6b2a0d528a?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "otherImages": [
+      "https://images.unsplash.com/photo-1512201078372-9c6b2a0d528a?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "color": [
+      "brown",
+      "cool brown"
+    ],
+    "brand": "",
+    "material": [
+      "100% leather"
+    ],
+    "care": "",
+    "purchasePrice": "30",
+    "purchaseDate": "YYYY-MM-DDT00:00:00.000+00:00",
+    "origin": {
+      "originType": "Second-hand",
+      "store": "Facebook Marketplace"
+    },
+    "category": "accessory",
+    "categoryTags": [
+      "crossbody",
+      "purse"
+    ]
+  },
+  {
+    "name": "Leather Crossbody",
+    "description": "Cute vintage box crossbody made in Korea. Strap comes off for use as a handbag.",
+    "mainImage": "https://images.unsplash.com/photo-1512201078372-9c6b2a0d528a?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "otherImages": [
+      "https://images.unsplash.com/photo-1512201078372-9c6b2a0d528a?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "color": [
+      "brown",
+      "cool brown",
+      "orange",
+      "gold"
+    ],
+    "material": [
+      "leather"
+    ],
+    "purchasePrice": "30",
+    "purchaseDate": "2024-01-25T00:00:00Z",
+    "origin": {
+      "originType": "Second-hand",
+      "store": "Facebook Marketplace"
+    },
+    "category": "accessory",
+    "categoryTags": [
+      "crossbody",
+      "purse"
+    ]
+  },
+  {
+    "name": "Cocktail Dress",
+    "description": "My prom dress.",
+    "mainImage": "https://images.unsplash.com/photo-1568251188392-ae32f898cb3b?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "otherImages": [
+      "https://images.unsplash.com/photo-1568251188392-ae32f898cb3b?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "color": [
+      "blue",
+      "navy blue",
+      "gold"
+    ],
+    "material": [
+      "shell: 96% polyester, 4% spandex",
+      "lining: 100% polyester"
+    ],
+    "care": "Wash inside out. Iron on reverse.",
+    "purchasePrice": "110",
+    "origin": {
+      "originType": "New",
+      "store": "Le Château"
+    },
+    "category": "one-piece",
+    "categoryTags": [
+      "dress"
+    ]
+  },
+  {
+    "name": "Heart Pendant Necklace",
+    "description": "Necklace I wear regularly with the pendant reversed.",
+    "mainImage": "https://images.unsplash.com/photo-1631097969294-c38afba59496?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "otherImages": [
+      "https://images.unsplash.com/photo-1631097969294-c38afba59496?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "color": [
+      "gold",
+      "white"
+    ],
+    "material": [
+      "gold"
+    ],
+    "purchasePrice": "0",
+    "origin": {
+      "originType": "Second-hand",
+      "store": "My mom"
+    },
+    "category": "accessory",
+    "categoryTags": [
+      "jewelry",
+      "necklace"
+    ]
+  },
+  {
+    "name": "Polka-Dot Neck Scarf",
+    "description": "Classy scarf I don't wear enough.",
+    "mainImage": "https://images.unsplash.com/photo-1485527691629-8e370684924c?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "otherImages": [
+      "https://images.unsplash.com/photo-1485527691629-8e370684924c?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "color": [
+      "black",
+      "white"
+    ],
+    "origin": {
+      "originType": "Second-hand",
+      "store": "Wildlife Thrift Store"
+    },
+    "category": "accessory",
+    "categoryTags": [
+      "scarf"
+    ]
+  },
+  {
+    "name": "Minimal Dangle Earrings",
+    "description": "Frequently worn light-weight earrings.",
+    "mainImage": "https://images.unsplash.com/photo-1587467442586-7bcc51828a10?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "otherImages": [
+      "https://images.unsplash.com/photo-1587467442586-7bcc51828a10?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "color": [
+      "silver"
+    ],
+    "origin": {
+      "originType": "Second-hand",
+      "store": "Retail Therapy KW Thrift"
+    },
+    "category": "accessory",
+    "categoryTags": [
+      "earrings"
+    ]
+  },
+  {
+    "name": "Black Sunglasses",
+    "description": "Your average pair of black sunglasses",
+    "mainImage": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "otherImages": [
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "color": [
+      "black",
+      "silver"
+    ],
+    "brand": "Banana Republic",
+    "purchasePrice": "10",
+    "origin": {
+      "originType": "Second-hand",
+      "store": "Value Village"
+    },
+    "category": "accessory",
+    "categoryTags": [
+      "sunglasses"
+    ]
+  }
+]

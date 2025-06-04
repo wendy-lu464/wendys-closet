@@ -4,8 +4,7 @@ import blogsData from '../../data/blogs.json'
 const Blogs = () => {
     return (
         <section className='section__container blog__container'>
-            <h2 className='section__header'>Latest from the blog</h2>
-            <p className='section__subheader'>Text here</p>
+            <h2 className='section__header'>Latest Posts</h2>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-12'>
                 {
                     blogsData.map((blog, index) => (

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters }) => {
+const ClosetFiltering = ({ filters, filtersState, handleFilterChange, clearFilters }) => {
     return (
         <div className='space-y-5 flex-shrink-0'>
             {/* categories */}
@@ -12,7 +12,7 @@ const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters })
                         <label key={category} className='capitalize cursor-pointer'>
                             <input type='radio' name='category' id='category' value={category}
                                 checked={filtersState.category === category}
-                                onChange={(e) => setFiltersState({ ...filtersState, category: e.target.value })}
+                                onChange={(e) => handleFilterChange({ ...filtersState, category: e.target.value })}
                             />
                             <span className='ml-1'>{category}</span>
                         </label>
@@ -29,27 +29,9 @@ const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters })
                         <label key={color} className='capitalize cursor-pointer'>
                             <input type='radio' name='color' id='color' value={color}
                                 checked={filtersState.color === color}
-                                onChange={(e) => setFiltersState({ ...filtersState, color: e.target.value })}
+                                onChange={(e) => handleFilterChange({ ...filtersState, color: e.target.value })}
                             />
                             <span className='ml-1'>{color}</span>
-                        </label>
-                    ))
-                }
-            </div>
-
-            {/* pricing */}
-            <div className='flex flex-col space-y-2'>
-                <h4 className='font-medium text-lg'>Purchase Price</h4>
-                <hr />
-                {
-                    filters.purchasePriceRanges.map((range) => (
-                        <label key={range.label} className='capitalize cursor-pointer'>
-                            <input type='radio' name='purchasePriceRange' id='purchasePriceRange' 
-                            value={`${range.min}-${range.max}`}
-                                checked={filtersState.purchasePriceRange === `${range.min}-${range.max}`} // What's this?
-                                onChange={(e) => setFiltersState({ ...filtersState, purchasePriceRange: e.target.value })}
-                            />
-                            <span className='ml-1'>{range.label}</span>
                         </label>
                     ))
                 }
@@ -61,4 +43,4 @@ const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters })
     )
 }
 
-export default ShopFiltering
+export default ClosetFiltering

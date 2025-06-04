@@ -3,7 +3,7 @@ import OrderSummary from './OrderSummary'
 import { useDispatch } from 'react-redux'
 import { removeFromCart, updateQuantity } from '../../redux/features/cart/cartSlice'
 
-const CartModal = ({ products, isOpen, onClose }) => {
+const CartModal = ({ items, isOpen, onClose }) => {
     const dispatch = useDispatch()
 
     const handleQuantity = (type, id) => {
@@ -36,29 +36,29 @@ const CartModal = ({ products, isOpen, onClose }) => {
                     {/* cart details */}
                     <div className='cart-items'>
                         {
-                            products.length === 0 ? (<div>Your cart is empty</div>) : (
-                                products.map((product, index) => (
+                            items.length === 0 ? (<div>Your cart is empty</div>) : (
+                                items.map((item, index) => (
                                     <div key={index} className='flex flex-col 
                                     md:flex-row md:items-center md:justify-between shadow-md md:p-5 p-2 mb-4'>
                                         <div className='flex items-center'>
                                             <span className='mr-4 px-1 bg-primary text-white rounded-full'>0{index + 1}</span>
-                                            <img src={product.mainImage} alt='' className='size-12 object-cover mr-4' />
+                                            <img src={item.mainImage} alt='' className='size-12 object-cover mr-4' />
                                             <div>
-                                                <h5 className='text-lg font-medium'>{product.name}</h5>
-                                                <p className='text-gray-600 text-sm'>${Number(product.price).toFixed(2)}</p>
+                                                <h5 className='text-lg font-medium'>{item.name}</h5>
+                                                <p className='text-gray-600 text-sm'>${Number(item.price).toFixed(2)}</p>
                                             </div>
 
                                             <div className='flex flex-row md:justify-start justify-end items-center mt-2'>
-                                                <button onClick={() => handleQuantity('decrement', product.id)}
+                                                <button onClick={() => handleQuantity('decrement', item.id)}
                                                     className='size-6 flex items-center justify-center px-1.5 rounded-full 
                                                 bg-gray-200 text-gray-700 hover:bg-primary hover:text-white ml-8'>-</button>
-                                                <span className='px-2 text-center mx-1'>{product.quantity}</span>
-                                                <button onClick={() => handleQuantity('increment', product.id)}
+                                                <span className='px-2 text-center mx-1'>{item.quantity}</span>
+                                                <button onClick={() => handleQuantity('increment', item.id)}
                                                     className='size-6 flex items-center justify-center px-1.5 rounded-full 
                                                 bg-gray-200 text-gray-700 hover:bg-primary hover:text-white'>+</button>
 
                                                 <div className='ml-5'>
-                                                    <button onClick={(e) => handleRemove(e, product.id)}
+                                                    <button onClick={(e) => handleRemove(e, item.id)}
                                                         className='text-red-500 hover:text-red-800 mr-4'>Remove</button>
                                                 </div>
                                             </div>
@@ -71,7 +71,7 @@ const CartModal = ({ products, isOpen, onClose }) => {
 
                     {/* calculation */}
                     {
-                        products.length > 0 && (<OrderSummary />)
+                        items.length > 0 && (<OrderSummary />)
                     }
                 </div>
             </div>

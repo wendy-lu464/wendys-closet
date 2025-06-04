@@ -1,18 +1,36 @@
 import React, { useState } from 'react'
-import ProductCards from '../shop/ProductCards'
-import productsData from '../../data/products.json'
+import ItemCards from '../closet/ItemCards'
+import { useFetchAllItemsQuery } from '../../redux/features/items/itemsApi'
 
 const Search = () => {
     const [searchQuery, setSearchQuery] = useState('')
-    const [filteredProducts, setFilteredProducts] = useState(productsData)
+    const [filteredItems, setFilteredItems] = useState([])
+    const { data: { items = [], totalPages, totalItems } = {}, error, isLoading } = useFetchAllItemsQuery({})
 
     const handleSearch = () => {
         const query = searchQuery.toLowerCase()
-        const filtered = productsData.filter(product => product.name.toLowerCase().includes(query) ||
-            product.description.toLowerCase().includes(query))
-
-        setFilteredProducts(filtered)
+        if (query === '') {
+            setFilteredItems([])
+        } else {
+            const filtered = items.filter(item =>
+                item.name.toLowerCase().includes(query) ||
+                item.description?.toLowerCase().includes(query) ||
+                item.color?.some(color => color.includes(query)) ||
+                item.brand?.toLowerCase().includes(query) ||
+                item.material?.some(material => material.toLowerCase().includes(query)) ||
+                item.care?.toLowerCase().includes(query) ||
+                item.origin?.store?.toLowerCase().includes(query) ||
+                item.categoryTags.some(tag => tag.includes(query)))
+            setFilteredItems(filtered)
+        }
     }
+
+    if (isLoading) return <div>Loading...</div>
+    if (error) {
+        console.log(error)
+        return <div>Error loading items</div>
+    }
+
     return (
         <>
             <section className='section__container bg-primary-light'>
@@ -25,8 +43,9 @@ const Search = () => {
                     <input type='text'
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
+                        onKeyDown={(e) => {if (e.key === 'Enter') {handleSearch()}}}
                         className='search-bar w-full max-w-4xl p-2 border rounded'
-                        placeholder='Search for products...' />
+                        placeholder='Search for items...' />
 
                     <button
                         onClick={handleSearch}
@@ -35,7 +54,7 @@ const Search = () => {
                     </button>
                 </div>
 
-                <ProductCards products={filteredProducts} />
+                <ItemCards items={filteredItems} />
             </section>
         </>
     )

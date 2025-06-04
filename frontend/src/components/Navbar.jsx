@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import CartModal from '../pages/shop/CartModal'
+import CartModal from '../pages/closet/CartModal'
 import avatarImg from '../assets/avatar.png'
 import { useLogoutUserMutation } from '../redux/features/auth/authApi'
 import { logout } from '../redux/features/auth/authSlice'
 
 const Navbar = () => {
-    const products = useSelector((state) => state.cart.products)
+    const items = useSelector((state) => state.cart.items)
     const [isCartOpen, setIsCartOpen] = useState(false)
     const handleCartToggle = () => {
         setIsCartOpen(!isCartOpen)
@@ -28,7 +28,7 @@ const Navbar = () => {
     // admin dropdown menu
     const adminDropdownMenu = [
         { label: 'Dashboard', path: '/dashboard/admin' },
-        { label: 'Manage Items', path: '/dashboard/manage-products' },
+        { label: 'Manage Items', path: '/dashboard/manage-items' },
         { label: 'All Orders', path: '/dashboard/manage-orders' },
         { label: 'Add New Post', path: '/dashboard/add-new-post' },
     ]
@@ -58,8 +58,7 @@ const Navbar = () => {
             <nav className='max-w-screen-2xl mx-auto px-4 flex justify-between items-center'>
                 <ul className='nav__links'>
                     <li className='link'><Link to="/">Home</Link></li>
-                    <li className='link'><Link to="/shop">Shop</Link></li>
-                    <li className='link'><Link to="/">Pages</Link></li>
+                    <li className='link'><Link to="/closet">Browse</Link></li>
                     <li className='link'><Link to="/contact">Contact</Link></li>
                 </ul>
 
@@ -75,10 +74,10 @@ const Navbar = () => {
                             <i className="ri-search-line"></i>
                         </Link>
                     </span>
-                    <span>
+                    <span hidden>
                         <button onClick={handleCartToggle} className='hover:text-primary'>
                             <i className="ri-shopping-cart-line"></i>
-                            <sup className='text-sm inline-block px-1.5 text-white rounded-full bg-primary text-center'>{products.length}</sup>
+                            <sup className='text-sm inline-block px-1.5 text-white rounded-full bg-primary text-center'>{items.length}</sup>
                         </button>
                     </span>
                     <span>
@@ -116,7 +115,7 @@ const Navbar = () => {
             </nav>
 
             {
-                isCartOpen && <CartModal products={products} isOpen={isCartOpen} onClose={handleCartToggle} />
+                isCartOpen && <CartModal items={items} isOpen={isCartOpen} onClose={handleCartToggle} />
             }
         </header>
     )
